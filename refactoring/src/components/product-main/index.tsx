@@ -16,24 +16,25 @@ import {
 const carouselData = [
   {
     id: 1,
-    image: "/images/mainA.png",
+    image: "/images/포항숙소.jpg",
     title: "포항: 당장 가고 싶은 숙소",
-    description: "설명 내용",
+    description: "바다와 가까운 위치에 있어 훌륭한 전망을 제공합니다.",
     price: "32,900원",
   },
   {
     id: 2,
-    image: "/images/mainB.png",
-    title: "경월: 마음까지 깨끗해지는 하얀 숙소",
-    description: "설명 내용",
-    price: "32,900원",
+    image: "/images/거제숙소.jpg",
+    title: "거제: 마음까지 깨끗해지는 하얀 숙소",
+    description:
+      "아름다운 거제 바다 오션뷰가 펼쳐지는 거제 바다그리고 펜션입니다.",
+    price: "45,200원",
   },
   {
     id: 3,
-    image: "/images/mainA.png",
-    title: "경월: 마음까지 깨끗해지는 하얀 숙소",
-    description: "설명 내용",
-    price: "32,900원",
+    image: "/images/울주숙소.jpg",
+    title: "울주: 마음까지 깨끗해지는 하얀 숙소",
+    description: "뛰어난 청결 상태와 친절한 서비스로 호평받고 있습니다.",
+    price: "41,800원",
   },
   // 필요한 데이터 추가
 ];
@@ -185,16 +186,14 @@ export default function MainComponent() {
                 onClick={onClickMoveDetail}
               >
                 <Image
-                  src="/images/mainB.png"
+                  src="/images/거제숙소.jpg"
                   alt="숙소 이미지"
                   className={styles.cardImage}
                   width={150}
                   height={0}
                 />
                 <div className={styles.cardContent}>
-                  <h2 className={styles.cardTitle}>
-                    살아리 살아리랏다 청산에...
-                  </h2>
+                  <h2 className={styles.cardTitle}>강릉</h2>
                   <span className={styles.cardDescription}>
                     숙소 설명이 들어갈 자리입니다.
                   </span>

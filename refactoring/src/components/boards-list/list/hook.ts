@@ -40,6 +40,8 @@ export const useBoardsList = () => {
     });
   };
 
+  console.log(result.data);
+
   return {
     data,
     onClickDelete,

@@ -6,8 +6,6 @@ import Image from "next/image";
 import { IBoardsListProps } from "./types";
 import Link from "next/link";
 import { useSearchComponent } from "../search/hook";
-import { FetchBoardsDocument } from "@/commons/graphql/graphql";
-import { useQuery } from "@apollo/client";
 
 export default function BoardList(
   props: IBoardsListProps & { keyword: string }
@@ -15,9 +13,6 @@ export default function BoardList(
   const { onClickDelete } = useBoardsList();
   const { keyword } = useSearchComponent(props);
   console.log("🚀 ~ BoardList ~ keyword:", keyword);
-  const { data, refetch } = useQuery(FetchBoardsDocument, {
-    variables: { page: 1 }, // 페이지 번호를 맞춰주면, 해당 페이지의 데이터만 가져올 수 있음
-  });
 
   return (
     <div className={styles.boardLayout}>
@@ -28,7 +23,7 @@ export default function BoardList(
           <span className={styles.navText}>작성자</span>
           <span className={styles.navText}>날짜</span>
         </div>
-        {data?.fetchBoards.map((el, index) => {
+        {props.data?.fetchBoards.map((el, index) => {
           return (
             <div className={styles.postLists} key={el._id}>
               {/* 게시글 하나 */}
@@ -64,11 +59,7 @@ export default function BoardList(
                   <button
                     className={styles.deleteButton}
                     id={el._id}
-                    onClick={(event) => {
-                      onClickDelete(event);
-                      // 게시글 삭제 후 리스트 갱신
-                      refetch(); // 데이터를 새로 가져옴
-                    }}
+                    onClick={onClickDelete}
                   >
                     <Image
                       src="/icon/delete.svg"
